@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NCAA Football Case Study - Enhanced Portfolio Version</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px auto; max-width: 1000px; background-color: #f9f9f9; color: #333; padding: 20px; }
+        h1, h2, h3 { color: #0a4275; }
+        section { margin-bottom: 50px; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
+        ul, ol { margin-left: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; }
+        th { background: #e3f2fd; }
+        nav ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+        nav li { background-color: #0a4275; padding: 8px 12px; border-radius: 5px; }
+        nav a { color: white; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<h1>NCAA Football Analysis Case Study (2013–2023)</h1>
+
+<section id="executive-summary">
+    <h2>Executive Summary</h2>
+    <p>This project analyzes NCAA football team statistics from 2013 to 2023 to identify which performance metrics most strongly predict team success. Using data from the NCAA via Kaggle, the analysis explores offensive and defensive performance, third-down and red-zone efficiency, turnover margins, and special teams metrics.</p>
+    <ul>
+        <li>Efficiency metrics (e.g., third-down conversion) explain 72% of win percentage variation.</li>
+        <li>Balanced teams (strong offense and defense) have an 84.7% win rate.</li>
+        <li>Special teams have minimal predictive power (only 2%).</li>
+    </ul>
+    <p>Recommendations focus on training for efficiency, balanced development, and conference-specific strategies. This analysis supports data-informed decision-making for recruiting, practice planning, and game strategy.</p>
+</section>
+
+<section id="toc">
+    <h2>Table of Contents</h2>
+    <nav>
+        <ul>
+            <li><a href="#executive-summary">Executive Summary</a></li>
+            <li><a href="#snapshot">Key Metrics Snapshot</a></li>
+            <li><a href="#ask">Phase 1: Ask</a></li>
+            <li><a href="#prepare">Phase 2: Prepare</a></li>
+            <li><a href="#process">Phase 3: Process</a></li>
+            <li><a href="#analyze">Phase 4: Analyze</a></li>
+            <li><a href="#share">Phase 5: Share</a></li>
+            <li><a href="#act">Phase 6: Act</a></li>
+            <li><a href="#tools">Tools & Technologies Used</a></li>
+            <li><a href="#reflection">Reflection</a></li>
+        </ul>
+    </nav>
+</section>
+
+<section id="snapshot">
+    <h2>Key Metrics Snapshot</h2>
+    <ul>
+        <li><strong>Seasons Analyzed:</strong> 2013–2023</li>
+        <li><strong>Total Teams:</strong> ~130 FBS programs</li>
+        <li><strong>Total Metrics:</strong> 145+ team stats per season</li>
+        <li><strong>Models Built:</strong> Full, Offense-only, Defense-only, Special Teams, Efficiency</li>
+        <li><strong>Best R²:</strong> 0.74 (Full Model), 0.72 (Efficiency Model)</li>
+        <li><strong>Most Predictive Metrics:</strong> Third Down Conversion, Turnover Margin</li>
+    </ul>
+</section>
+
+<section id="ask">
+    <h2>Phase 1: Ask</h2>
+    <ul>
+        <li><strong>Client:</strong> College sports analytics firm working with NCAA programs.</li>
+        <li><strong>Business Task:</strong> Identify performance metrics that predict team success.</li>
+        <li><strong>Stakeholders:</strong> Coaches, athletic directors, recruitment analysts.</li>
+        <li><strong>Guiding Questions:</strong>
+            <ul>
+                <li>Which metrics most predict wins?</li>
+                <li>Is defense more important than offense?</li>
+                <li>Which conferences dominate?</li>
+                <li>How important are special teams?</li>
+                <li>What role does third-down efficiency play?</li>
+            </ul>
+        </li>
+    </ul>
+</section>
+
+<section id="prepare">
+    <h2>Phase 2: Prepare</h2>
+    <ul>
+        <li><strong>Source:</strong> Kaggle Dataset (College Football Team Stats)</li>
+        <li><strong>Coverage:</strong> 2013–2023, all FBS teams</li>
+        <li><strong>Metrics:</strong> Offense, Defense, ST, Turnovers, Red Zone, Efficiency</li>
+        <li><strong>Credibility:</strong> Scraped from NCAA.com, reviewed annually</li>
+        <li><strong>License:</strong> Open Database Commons</li>
+    </ul>
+</section>
+
+<section id="process">
+    <h2>Phase 3: Process</h2>
+    <ul>
+        <li><strong>Tools:</strong> Google Sheets, Excel</li>
+        <li><strong>Cleaning Tasks:</strong>
+            <ul>
+                <li>Imputed missing values using season medians</li>
+                <li>Removed 8 duplicate entries</li>
+                <li>Standardized column names</li>
+                <li>Created derived metrics (e.g., efficiency ratios)</li>
+            </ul>
+        </li>
+    </ul>
+    <table>
+        <thead><tr><th>Step</th><th>Tool</th><th>Impact</th><th>Details</th></tr></thead>
+        <tbody>
+            <tr><td>Missing Values</td><td>Google Sheets</td><td>~3%</td><td>Median imputation</td></tr>
+            <tr><td>Duplicate Removal</td><td>Google Sheets</td><td>8 records</td><td>Removed by unique team-year</td></tr>
+            <tr><td>Column Renaming</td><td>Google Sheets</td><td>All</td><td>Acronyms clarified</td></tr>
+            <tr><td>Metric Creation</td><td>Google Sheets</td><td>10+ fields</td><td>Efficiency & performance rates</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section id="analyze">
+    <h2>Phase 4: Analyze</h2>
+    <ul>
+        <li><strong>Methods:</strong> EDA, correlation analysis, regression, ANOVA</li>
+        <li><strong>Key Insights:</strong>
+            <ul>
+                <li>Efficiency metrics = strongest predictors (72% variance explained)</li>
+                <li>High offense + high defense = 84.7% win rate</li>
+                <li>Special teams = minor impact</li>
+            </ul>
+        </li>
+        <li><strong>Surprises:</strong> Balance outperforms specialization; third-down performance highly predictive.</li>
+    </ul>
+</section>
+
+<section id="share">
+    <h2>Phase 5: Share</h2>
+    <ul>
+        <li><strong>Format:</strong> HTML dashboard-style report with visual insights</li>
+        <li><strong>Tools:</strong> Google Sheets, Canva</li>
+        <li><strong>Visuals:</strong> Heatmaps, model charts, win rate boxes</li>
+        <li><strong>Design Choices:</strong> Clear labels, team-focused insights, accessible formatting</li>
+    </ul>
+</section>
+
+<section id="act">
+    <h2>Phase 6: Act</h2>
+    <h3>Recommendations</h3>
+    <ul>
+        <li>Prioritize third-down/red-zone efficiency training</li>
+        <li>Balance development between offense and defense</li>
+        <li>Tailor strategies based on conference competition</li>
+        <li>Deploy special teams tactically—not strategically</li>
+    </ul>
+    <h3>Next Steps</h3>
+    <ul>
+        <li>Integrate player-level data (QB performance, etc.)</li>
+        <li>Analyze recruiting class outcomes</li>
+        <li>Use game-level and play-by-play data in future models</li>
+    </ul>
+</section>
+
+<section id="tools">
+    <h2>Tools & Technologies Used</h2>
+    <ul>
+        <li>Google Sheets – cleaning, transformation, modeling</li>
+        <li>Excel – conversions and formatting</li>
+        <li>Canva – visual design and annotations</li>
+        <li>HTML/CSS – dashboard presentation</li>
+    </ul>
+</section>
+
+<section id="reflection">
+    <h2>Reflection</h2>
+    <p>This project strengthened my ability to work with large datasets, translate statistics into strategy, and communicate findings effectively. If I were to extend it, I would explore advanced modeling (e.g., logistic regression), bring in player-level data, and build interactive dashboards.</p>
+</section>
+
+</body>
+</html>
