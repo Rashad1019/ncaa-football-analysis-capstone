@@ -11,7 +11,7 @@ The goal is to identify what truly makes a winning college football team by expl
 
 Before structuring this project as a capstone, I conducted an exploratory analysis focused on identifying what makes a winning NCAA football team.
 
-📎 **[View the Original Study (HTML Report)](https://rashad1019.github.io/ncaa-football-analysis/)**
+📎 **[View the Original Study (GitHub Pages)](https://rashad1019.github.io/ncaa-football-analysis/)**
 
 Key findings from the original study include:
 
